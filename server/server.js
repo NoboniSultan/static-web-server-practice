@@ -14,10 +14,14 @@ app.use(serveStatic);
 
 // Middleware function for logging route requests
 // Log routes
-app.use((req, res, next) => {
-    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-    next();
-});
+// Middleware function for logging route requests
+const logRoutes = (req, res, next) => {
+    const time = new Date().toLocaleString();
+    console.log(`${req.method}: ${req.originalUrl} - ${time}`);
+    next(); // Passes the request to the next middleware/controller
+};
+// Register the logRoutes middleware globally to log all requests
+app.use(logRoutes);
 
 // other controllers 
 const userRoutes = require('./routes/userRoutes')

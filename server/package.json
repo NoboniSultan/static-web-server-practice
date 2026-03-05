@@ -2,9 +2,11 @@
   "name": "server.js",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "npm i express dotenv && npm i nodemon -D"
+    "test": "",
+    "build": "cd ../frontend && npm i && npm run build && cd ../server && npm i",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
